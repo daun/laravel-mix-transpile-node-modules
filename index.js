@@ -1,6 +1,6 @@
 const mix = require("laravel-mix");
 
-const escapeRegExp = (s) => s.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
+const escapeRegExp = (str) => str.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
 
 /**
  * Babel-transpile dependencies inside `node_modules`
