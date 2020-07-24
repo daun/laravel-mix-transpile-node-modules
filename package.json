@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-transpile-node-modules",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Laravel Mix extension for Babel-transpiling dependencies inside node_modules",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   "peerDependencies": {
     "laravel-mix": "^4.0.0"
   },
-  "author": "Philipp Daun",
+  "author": "Philipp Daun <daun@daun.ltd>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/daun/laravel-mix-transpile-node-modules/issues"
