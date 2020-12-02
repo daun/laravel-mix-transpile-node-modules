@@ -2,7 +2,7 @@ const mix = require("laravel-mix");
 const path = require('path');
 
 const escapeRegExp = (str) => str.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
-const slashPatterh = `\\${path.sep}`;
+const slashPattern = `\\${path.sep}`;
 
 /**
  * Babel-transpile dependencies inside `node_modules`
