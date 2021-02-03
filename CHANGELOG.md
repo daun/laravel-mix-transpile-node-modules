@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [2.0.1] - 2021-02-03
+
+* Fix incorrect default parameter
+
 ## [2.0.0] - 2021-02-03
 
 * Add support for Mix v6
@@ -14,6 +18,7 @@
 
 * Initial release 🐦
 
+[2.0.1]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v2.0.1
 [2.0.0]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v2.0.0
 [1.0.3]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v1.0.3
 [1.0.0]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v1.0.0

@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-transpile-node-modules",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Laravel Mix extension for Babel-transpiling dependencies inside node_modules",
   "main": "index.js",
   "scripts": {
