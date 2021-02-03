@@ -20,7 +20,7 @@
   ],
   "dependencies": {},
   "peerDependencies": {
-    "laravel-mix": "^4.0.0"
+    "laravel-mix": "^4.0.0||^5.0.0||^6.0.0"
   },
   "author": "Philipp Daun <daun@daun.ltd>",
   "license": "MIT",
