@@ -27,7 +27,7 @@ class TranspileNodeModules {
    *
    * @param {Boolean|Array} transpile
    */
-  register(transpile) {
+  register(transpile = true) {
     if (Array.isArray(transpile)) {
       if (!Array.isArray(this.transpileModules)) {
         this.transpileModules = transpile;
