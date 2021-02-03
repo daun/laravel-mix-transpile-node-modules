@@ -57,12 +57,18 @@ class TranspileNodeModules {
    */
   findBabelRules(webpackConfig) {
     const { rules } = webpackConfig.module;
-    return rules.filter(({ test, use }) => {
-      return (
-        test.toString().includes(".js") &&
-        use.find(({ loader }) => loader === "babel-loader")
-      );
-    });
+    return rules.filter(
+      (rule) => this.ruleTransformsJs(rule) && this.ruleUsesBabel(rule)
+    );
+  }
+
+  ruleTransformsJs({ test }) {
+    const pattern = test.toString();
+    return pattern.includes(".js") || pattern.match(/\b(cjs|mjs|jsx?|tsx?)\b/);
+  }
+
+  ruleUsesBabel({ use }) {
+    return use && use.find(({ loader }) => loader === "babel-loader");
   }
 
   /**
