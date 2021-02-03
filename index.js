@@ -1,5 +1,5 @@
 const mix = require("laravel-mix");
-const path = require('path');
+const path = require("path");
 
 const escapeRegExp = (str) => str.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
 const slashPattern = `\\${path.sep}`;
@@ -57,12 +57,18 @@ class TranspileNodeModules {
    */
   findBabelRules(webpackConfig) {
     const { rules } = webpackConfig.module;
-    return rules.filter(({ test, use }) => {
-      return (
-        test.toString().includes(".js") &&
-        use.find(({ loader }) => loader === "babel-loader")
-      );
-    });
+    return rules.filter(
+      (rule) => this.ruleTransformsJs(rule) && this.ruleUsesBabel(rule)
+    );
+  }
+
+  ruleTransformsJs({ test }) {
+    const pattern = test.toString();
+    return pattern.includes(".js") || pattern.match(/\b(cjs|mjs|jsx?|tsx?)\b/);
+  }
+
+  ruleUsesBabel({ use }) {
+    return use && use.find(({ loader }) => loader === "babel-loader");
   }
 
   /**
@@ -78,7 +84,9 @@ class TranspileNodeModules {
       return /node_modules/;
     } else {
       const includeModules = transpile.map(escapeRegExp).join("|");
-      return new RegExp(`node_modules${slashPattern}(?!(${includeModules})${slashPattern})`);
+      return new RegExp(
+        `node_modules${slashPattern}(?!(${includeModules})${slashPattern})`
+      );
     }
   }
 }
