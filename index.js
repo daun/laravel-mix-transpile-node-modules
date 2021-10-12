@@ -68,7 +68,7 @@ class TranspileNodeModules {
   }
 
   ruleUsesBabel({ use }) {
-    return use && use.find(({ loader }) => loader === "babel-loader");
+    return use && use.find(({ loader }) => loader.includes("babel-loader"));
   }
 
   /**
