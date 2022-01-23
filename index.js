@@ -1,8 +1,9 @@
 const mix = require("laravel-mix");
 const path = require("path");
 
+// Determine system directory separator
+const slash = `\\${path.sep}`;
 const escapeRegExp = (str) => str.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
-const slashPattern = `\\${path.sep}`;
 
 /**
  * Babel-transpile dependencies inside `node_modules`
@@ -84,9 +85,7 @@ class TranspileNodeModules {
       return /node_modules/;
     } else {
       const includeModules = transpile.map(escapeRegExp).join("|");
-      return new RegExp(
-        `node_modules${slashPattern}(?!(${includeModules})${slashPattern})`
-      );
+      return new RegExp(`node_modules${slash}(?!(${includeModules})${slash})`);
     }
   }
 }
