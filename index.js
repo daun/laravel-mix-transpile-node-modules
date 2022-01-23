@@ -68,8 +68,10 @@ class TranspileNodeModules {
     return pattern.includes(".js") || pattern.match(/\b(cjs|mjs|jsx?|tsx?)\b/);
   }
 
-  ruleUsesBabel({ use }) {
-    return use && use.find(({ loader }) => loader.match(/(^|\/)babel-loader(\/|$)/));
+  ruleUsesBabel({ use = [] }) {
+    return use.some(({ loader }) =>
+      loader.match(new RegExp(`(^|${slash})babel-loader(${slash}|$)`))
+    );
   }
 
   /**
