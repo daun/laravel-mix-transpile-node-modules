@@ -3,7 +3,9 @@ const path = require("path");
 
 // Determine system directory separator
 const slash = `\\${path.sep}`;
+
 const escapeRegExp = (str) => str.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
+const generateModuleRegExp = (str) => escapeRegExp(str.replace("/", path.sep));
 
 /**
  * Babel-transpile dependencies inside `node_modules`
@@ -86,7 +88,7 @@ class TranspileNodeModules {
     } else if (!transpile || (Array.isArray(transpile) && !transpile.length)) {
       return /node_modules/;
     } else {
-      const includeModules = transpile.map(escapeRegExp).join("|");
+      const includeModules = transpile.map(generateModuleRegExp).join("|");
       return new RegExp(`node_modules${slash}(?!(${includeModules})${slash})`);
     }
   }
