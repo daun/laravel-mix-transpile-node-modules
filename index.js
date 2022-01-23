@@ -1,8 +1,11 @@
 const mix = require("laravel-mix");
 const path = require("path");
 
+// Determine system directory separator
+const slash = `\\${path.sep}`;
+
 const escapeRegExp = (str) => str.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
-const slashPattern = `\\${path.sep}`;
+const generateModuleRegExp = (str) => escapeRegExp(str.replace("/", path.sep));
 
 /**
  * Babel-transpile dependencies inside `node_modules`
@@ -67,8 +70,10 @@ class TranspileNodeModules {
     return pattern.includes(".js") || pattern.match(/\b(cjs|mjs|jsx?|tsx?)\b/);
   }
 
-  ruleUsesBabel({ use }) {
-    return use && use.find(({ loader }) => loader.match(/(^|\/)babel-loader(\/|$)/));
+  ruleUsesBabel({ use = [] }) {
+    return use.some(({ loader }) =>
+      loader.match(new RegExp(`(^|${slash})babel-loader(${slash}|$)`))
+    );
   }
 
   /**
@@ -83,10 +88,8 @@ class TranspileNodeModules {
     } else if (!transpile || (Array.isArray(transpile) && !transpile.length)) {
       return /node_modules/;
     } else {
-      const includeModules = transpile.map(escapeRegExp).join("|");
-      return new RegExp(
-        `node_modules${slashPattern}(?!(${includeModules})${slashPattern})`
-      );
+      const includeModules = transpile.map(generateModuleRegExp).join("|");
+      return new RegExp(`node_modules${slash}(?!(${includeModules})${slash})`);
     }
   }
 }
