@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [2.0.3] - 2022-01-24
+
+* Fix babel-loader detection on Windows
+
 ## [2.0.2] - 2021-10-13
 
 * Fix detection of babel-loader
@@ -22,6 +26,7 @@
 
 * Initial release 🐦
 
+[2.0.3]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v2.0.3
 [2.0.2]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v2.0.2
 [2.0.1]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v2.0.1
 [2.0.0]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v2.0.0
