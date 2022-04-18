@@ -65,7 +65,7 @@ class TranspileNodeModules {
     );
   }
 
-  ruleTransformsJs({ test }) {
+  ruleTransformsJs({ test = '' }) {
     const pattern = test.toString();
     return pattern.includes(".js") || pattern.match(/\b(cjs|mjs|jsx?|tsx?)\b/);
   }
