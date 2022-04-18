@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [2.0.4] - 2022-04-18
+
+* Fix error on empty webpack rule tests
+
 ## [2.0.3] - 2022-01-24
 
 * Fix babel-loader detection on Windows
@@ -26,10 +30,11 @@
 
 * Initial release 🐦
 
+[Unreleased]: https://github.com/daun/laravel-mix-transpile-node-modules/compare/v2.0.4...HEAD
+[2.0.4]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v2.0.4
 [2.0.3]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v2.0.3
 [2.0.2]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v2.0.2
 [2.0.1]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v2.0.1
 [2.0.0]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v2.0.0
 [1.0.3]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v1.0.3
 [1.0.0]: https://github.com/daun/laravel-mix-transpile-node-modules/releases/tag/v1.0.0
-[Unreleased]: https://github.com/daun/laravel-mix-transpile-node-modules/compare/v2.0.0...HEAD
